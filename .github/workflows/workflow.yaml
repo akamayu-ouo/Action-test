@@ -7,3 +7,11 @@ jobs:
     steps:
       - run: date > time.txt
         shell: bash
+      - name: stage changed files
+        run: git add .
+      - name: commit changed files
+        run: git commit -m "Auto updating file"
+      - name: fetch from master
+        run: git fetch origin main
+      - name: push code to master
+        run: git push origin HEAD:main
